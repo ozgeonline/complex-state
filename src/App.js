@@ -8,30 +8,35 @@ function App() {
     lName:"",
     email: ""
   });
-  
+
   function handleChange(event){
     const {value,name} = event.target; //eventte setFullfName içinde erişme
 
     setContact(prevValue => {
-      if(name === "fName"){
-        return {
-          fName: value,
-          lName: prevValue.lName,
-          email:prevValue.email
-        }
-      }else if(name === "lName"){
-        return{
-          lName:value,
-          fName:prevValue.fName,
-          email:prevValue.email
-        }
-      }else if(name === "email"){
-        return{
-          email:value,
-          fName:prevValue.fName,
-          lName:prevValue.lName
-        }
+      return {
+        ...prevValue,
+        [name]:value
       }
+
+      // if(name === "fName"){
+      //   return {
+      //     fName: value,
+      //     lName: prevValue.lName,
+      //     email:prevValue.email
+      //   }
+      // }else if(name === "lName"){
+      //   return{
+      //     lName:value,
+      //     fName:prevValue.fName,
+      //     email:prevValue.email
+      //   }
+      // }else if(name === "email"){
+      //   return{
+      //     email:value,
+      //     fName:prevValue.fName,
+      //     lName:prevValue.lName
+      //   }
+      // }
     })
   }
  
